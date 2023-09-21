@@ -9,7 +9,7 @@ function App() {
   const [walls, setWalls] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3002/get-wallpapers')
+    axios.get('https://qizhy-backend.vercel.app/get-wallpapers')
       .then (res => {
         setWalls(res.data.wallpapers)
       })
@@ -30,7 +30,7 @@ function App() {
     formData.append(`URL2K`, url_2k);
     formData.append(`URL4K`, url_4k);
 
-    axios.post('http://localhost:3002/insert-wallpapers', formData)
+    axios.post('https://qizhy-backend.vercel.app/insert-wallpapers', formData)
       .then(res => {
         console.log(res.data)
         if (res.data.status == 200) {
@@ -56,7 +56,7 @@ function App() {
     formData.append(`URL2K`, url_2k);
     formData.append(`URL4K`, url_4k);
 
-    axios.post('http://localhost:3002/update-wallpapers', formData)
+    axios.post('https://qizhy-backend.vercel.app/update-wallpapers', formData)
       .then(res => {
         if (res.data.status == 200) {
           window.location.reload()
@@ -65,7 +65,7 @@ function App() {
   }
 
   const handleDelete = (id) => {
-    axios.post('http://localhost:3002/delete-wallpapers',{id : id})
+    axios.post('https://qizhy-backend.vercel.app/delete-wallpapers',{id : id})
       .then(res => {
         if (res.data.status == 200) {
           window.location.reload()
@@ -74,7 +74,7 @@ function App() {
   }
 
   const handleShow = (id) => {
-    axios.get('http://localhost:3002/get-wallpaper-by-id?id='+id)
+    axios.get('https://qizhy-backend.vercel.app/get-wallpaper-by-id?id='+id)
       .then(res => {
         if (res.data.status == 200) {
           document.querySelector('.haha').value = res.data.wallpaper._id
