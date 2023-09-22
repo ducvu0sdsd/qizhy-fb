@@ -18,6 +18,7 @@ function App() {
   const handleInsert = () => {
     const title = document.querySelector('.txt-title').value
     const video = document.querySelector('.txt-video').value
+    const type = document.querySelector('.txt-type').value
     const url_hd = document.querySelector('.txt-url-hd').value
     const url_2k = document.querySelector('.txt-url-2k').value
     const url_4k = document.querySelector('.txt-url-4k').value
@@ -26,6 +27,7 @@ function App() {
     formData.append(`image`, image);
     formData.append(`title`, title);
     formData.append(`video`, video);
+    formData.append(`type`, type);
     formData.append(`URLHD`, url_hd);
     formData.append(`URL2K`, url_2k);
     formData.append(`URL4K`, url_4k);
@@ -42,6 +44,7 @@ function App() {
   const handleUpdate = () => {
     const id = document.querySelector('.haha').value
     const title = document.querySelector('.txt-title').value
+    const type = document.querySelector('.txt-type').value
     const video = document.querySelector('.txt-video').value
     const url_hd = document.querySelector('.txt-url-hd').value
     const url_2k = document.querySelector('.txt-url-2k').value
@@ -52,6 +55,7 @@ function App() {
     formData.append(`image`, image);
     formData.append(`title`, title);
     formData.append(`video`, video);
+    formData.append(`type`, type);
     formData.append(`URLHD`, url_hd);
     formData.append(`URL2K`, url_2k);
     formData.append(`URL4K`, url_4k);
@@ -80,6 +84,7 @@ function App() {
           document.querySelector('.haha').value = res.data.wallpaper._id
           document.querySelector('.txt-title').value = res.data.wallpaper.title
           document.querySelector('.txt-video').value = res.data.wallpaper.video
+          document.querySelector('.txt-type').value = res.data.wallpaper.type
           document.querySelector('.txt-url-hd').value = res.data.wallpaper.URLHD
           document.querySelector('.txt-url-2k').value = res.data.wallpaper.URL2K
           document.querySelector('.txt-url-4k').value = res.data.wallpaper.URL4K
@@ -101,6 +106,12 @@ function App() {
               <label className='col-lg-12' style={{textAlign : 'start', fontSize: '15px'}} htmlFor="customInput">Video</label>
               <div className="mt-1"></div>
               <input type="text" name="titleVideo" className="form-control txt-video" placeholder="Enter text"/>
+          </div>
+          <div className="mt-3"></div>
+          <div className="form-group">
+              <label className='col-lg-12' style={{textAlign : 'start', fontSize: '15px'}} htmlFor="customInput">Type</label>
+              <div className="mt-1"></div>
+              <input type="text" name="titleVideo" className="form-control txt-type" placeholder="Enter text"/>
           </div>
           <div className="mt-3"></div>
           <div className="form-group">
